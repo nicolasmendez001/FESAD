@@ -34,7 +34,7 @@
     </table>
 </header>
 <footer>
-    <div id="footer_texto">FACULTAD DE ESTUDIOS A DISTANCIA . CREAD-SOGAMOSO <br> <?php echo $hoy['year'] ?></div>
+    <div id="footer_texto">FACULTAD DE ESTUDIOS A DISTANCIA. SEDE TUNJA <br> <?php echo $hoy['year'] ?></div>
 </footer>
 
 <div class="white-box">

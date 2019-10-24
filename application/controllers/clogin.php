@@ -10,13 +10,13 @@ class clogin extends CI_Controller
     public function index(){
 
         if ($this->session->userdata('username')){
-            redirect('cdocentes');
+            redirect('welcome');
         }
 
         if (isset($_POST['pass'])){
             if ($this->mfesad->login($_POST['name'],md5($_POST['pass']))){
                 $this->session->set_userdata('username',$_POST['name']);
-                redirect('cdocentes');
+                redirect('welcome');
             }else{
                 $datos = array('msj'=>"Datos Incorrectos");
                 $this->load->view('vlogin', $datos);

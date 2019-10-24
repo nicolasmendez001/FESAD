@@ -98,7 +98,7 @@
                         <a href="<?= base_url() ?>welcome" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
                     </li>
                     <li>
-                        <a href="" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
+                    <a href="<?= base_url() ?>cdocentes" class="waves-effect" style="border-left: none"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
                     </li>
                     <li>
                         <a href="<?= base_url() ?>cprograma" class="waves-effect" style="border-left: none"><i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>Programas</a>
@@ -127,130 +127,20 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row bg-title">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Panel de Administración Docente</h4>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <a href="#nuevodocente"><button class="btn btn-success">Agregar Docente</button></a>
+                    <div class="col-12 text-center">
+                        <h2 class="page-title">Bienvenido al sistema de gestión de asignaturas</h2>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.row -->
-                <!-- ============================================================== -->
-                <!-- Different data widgets -->
-                <!-- ============================================================== -->
-                <!-- .row -->
+               
+               
+                <!-- Code Bienvenida -->
+               
+            <div class="container-fluid">
 
-                <!--/.row -->
-                <!--row -->
+            </div>
 
-                <!-- ============================================================== -->
-                <!-- table -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><strong>Docentes</strong></h3>
-                                <div class="pull-right">
-                                    <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-                                        <i class="glyphicon glyphicon-filter"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="panel-body">
-                                <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filtrar Docentes" />
-                            </div>
-                            <table class="table table-hover" id="dev-table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nombre</th>
-                                        <th>Correo</th>
-                                        <th>Teléfono</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $i = 1 ?>
-                                    <?php foreach ($consulta->result() as $fila) { ?>
-                                        <tr>
-                                            <td><?php echo $i ?></td>
-                                            <td><?php echo $fila->nombre ?></td>
-                                            <td><?php echo $fila->correo ?></td>
-                                            <td><?php echo $fila->telefono ?></td>
-                                            <td>
-                                                <a href="<?php echo base_url('cdocentes/horario/' . $fila->id_docente); ?>"><button class="btn btn-primary">Ver</button></a>
-                                                <a href="<?php echo base_url('cdocentes/editar/' . $fila->id_docente); ?>"><button class="btn btn-warning">Editar</button></a>
-                                                <!--                                        <a href="--><?php //echo base_url('cdocentes/eliminar/' . $fila->id_docente); 
-                                                                                                            ?>
-                                                <!--"><button class="btn btn-danger">Eliminar</button></a>-->
-                                            </td>
-                                        </tr>
-
-                                        <?php $i++ ?>
-                                    <?php } ?>
-                                    <!--                            <td>-->
-                                    <!--                                <div class="col-12 col-md-4 align-self-center">-->
-                                    <!--                                    <ul class="list-unstyled mb-0 lis-line-height-2 text-md-left text-center">-->
-                                    <!--                                        <li><i class="fa fa-phone pl-2"></i>+88 25 5894 2589</li>-->
-                                    <!--                                        <li><A href="#" class="text-white"><i class="fa fa-envelope pl-2"></i> example@lister.com</A></li>-->
-                                    <!--                                        <li><A href="#" class="text-white"><i class="fa fa-map-o pl-2"></i> FirstStreet, New York, USA</A></li>-->
-                                    <!--                                    </ul>-->
-                                    <!--                                </div>-->
-                                    <!--                            </td>-->
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <div class="form-group">
-                        <div style="alignment: center">
-                            <!--                        <a href="--><? //= base_url() 
-                                                                    ?>
-                            <!--Coperarios/reporte"><button class="btn btn-success">Generar Reporte</button></a>-->
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- chat-listing & recent comments -->
-                <!-- ============================================================== -->
-
-                <div class="row bg-title">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Agregar Docente</h4>
-                    </div>
-
-                    <!-- /.col-lg-12 -->
-                </div>
-
-                <div class="col-md-12 col-xs-12" id="nuevodocente">
-                    <div class="white-box">
-                        <form class="form-horizontal form-material" action="" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label class="col-md-12">Nombre</label>
-                                <div class="col-md-12">
-                                    <input type="text" name="nombre" placeholder="Nombre y Apellidos" class="form-control form-control-line" required> </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="example-email" class="col-md-12">Correo electrónico</label>
-                                <div class="col-md-12">
-                                    <input type="email" name="correo" placeholder="nombre@correo.com" class="form-control form-control-line" id="example-email" required> </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Teléfono</label>
-                                <div class="col-md-12">
-                                    <input type="text" name="telefono" placeholder="123 456 7890" class="form-control form-control-line" required> </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input class="btn btn-success" type="submit" value="Guardar" name="" />
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
+               
             </div>
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2019 &copy; FACULTAD DE ESTUDIOS A DISTANCIA. SEDE TUNJA </footer>
