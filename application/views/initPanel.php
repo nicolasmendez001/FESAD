@@ -137,7 +137,7 @@
                 <!-- Code Bienvenida -->
                
             <div class="container-fluid">
-
+            <img src="<?= base_url() ?>/resources/images/infoInit.png" alt="IMG">
             </div>
 
                

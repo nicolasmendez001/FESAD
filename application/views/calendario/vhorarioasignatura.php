@@ -140,7 +140,7 @@
 
         </div>
         <!-- /.container-fluid -->
-        <footer class="footer text-center"> 2019 &copy; FACULTAD DE ESTUDIOS A DISTANCIA . CREAD-SOGAMOSO </footer>
+        <footer class="footer text-center"> 2019 &copy; FACULTAD DE ESTUDIOS A DISTANCIA. SEDE TUNJA </footer>
     </div>
 
     <!-- ============================================================== -->

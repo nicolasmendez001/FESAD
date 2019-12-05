@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Ingreso</title>
+    <title>Ingreso al sistema</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -45,7 +45,7 @@
 
             <form class="login100-form validate-form " action="" method="POST" enctype="multipart/form-data">
 					<span class="login100-form-title">
-						Ingreso de Administrador
+						Ingreso del administrador al sistema
 					</span>
 
                 <div class="wrap-input100 validate-input" data-validate = "Usuario Requerido">

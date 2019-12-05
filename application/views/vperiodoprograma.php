@@ -82,7 +82,7 @@
             </div>
             <ul class="nav" id="side-menu">
                 <li style="padding: 70px 0 0;">
-                    <a href="" class="waves-effect" style="border-left: none"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
+                <a href="<?= base_url() ?>welcome" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
                 </li>
                 <li>
                     <a href="<?= base_url() ?>cdocentes" class="waves-effect" style="border-left: none"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
@@ -174,7 +174,7 @@
 
         </div>
         <!-- /.container-fluid -->
-        <footer class="footer text-center"> 2019 &copy; FACULTAD DE ESTUDIOS A DISTANCIA . CREAD-SOGAMOSO </footer>
+        <footer class="footer text-center"> 2019 &copy; FACULTAD DE ESTUDIOS A DISTANCIA. SEDE TUNJA </footer>
     </div>
     <!-- ============================================================== -->
     <!-- End Page Content -->

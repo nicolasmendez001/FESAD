@@ -14,7 +14,7 @@
             <td id="header_texto">
                 <div>Facultad de Estudios a Distancia.</div>
                 <div>Universidad Pedagógica y Tecnológica de Colombia</div>
-                <div>CREAD-Sogamoso</div>
+                <div>CREAD-Tunja</div>
                 <div><strong>Reporte Docente</strong></div>
 
             </td>
