@@ -54,19 +54,11 @@
             <div class="navbar-header">
                 <div class="top-left-part">
                     <!-- Logo -->
-                    <a class="logo" href="index.html">
-                        <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon-->
-                            <!--                        <img src="--><? //= base_url() 
-                                                                        ?>
-                            <!--/resources/dashboard/plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon-->
-                            <!--                        <img src="-->--><? ////= base_url() 
-                                                                        ?>
-                            <!--<!--/resources/dashboard/plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />-->-->
-                            <!--                    </b>-->
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                                <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
-                            </span> </a>
+                    <a class="logo" href="welcome">
+                        <span class="hidden-xs">
+                            <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        </span>
+                    </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -182,9 +174,7 @@
                                             <td>
                                                 <a href="<?php echo base_url('cdocentes/horario/' . $fila->id_docente); ?>"><button class="btn btn-primary">Ver</button></a>
                                                 <a href="<?php echo base_url('cdocentes/editar/' . $fila->id_docente); ?>"><button class="btn btn-warning">Editar</button></a>
-                                                <!--                                        <a href="--><?php //echo base_url('cdocentes/eliminar/' . $fila->id_docente); 
-                                                                                                            ?>
-                                                <!--"><button class="btn btn-danger">Eliminar</button></a>-->
+                                                <a href="<?php echo base_url('cdocentes/eliminar/' . $fila->id_docente); ?>"><button class="btn btn-danger">Eliminar</button></a>
                                             </td>
                                         </tr>
 

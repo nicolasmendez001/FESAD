@@ -1,3 +1,8 @@
+<?php
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,22 +56,14 @@
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
-            <div class="navbar-header">
-                <div class="top-left-part">
+            <div class="navbar-header" style="background-color: #363435;">
+                <div class="top-left-part" style="background-color: #363435;">
                     <!-- Logo -->
                     <a class="logo" href="index.html">
-                        <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon-->
-                            <!--                        <img src="--><? //= base_url() 
-                                                                        ?>
-                            <!--/resources/dashboard/plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon-->
-                            <!--                        <img src="-->--><? ////= base_url() 
-                                                                        ?>
-                            <!--<!--/resources/dashboard/plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />-->-->
-                            <!--                    </b>-->
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                                <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
-                            </span> </a>
+                        <span class="hidden-xs">
+                            <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        </span>
+                    </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -88,7 +85,7 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <div class="navbar-default sidebar" role="navigation">
+        <div class="navbar-default sidebar" role="navigation" style="background: 	#FFCC28;">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
                     <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
@@ -98,7 +95,7 @@
                         <a href="<?= base_url() ?>welcome" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
                     </li>
                     <li>
-                    <a href="<?= base_url() ?>cdocentes" class="waves-effect" style="border-left: none"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
+                        <a href="<?= base_url() ?>cdocentes" class="waves-effect" style="border-left: none"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
                     </li>
                     <li>
                         <a href="<?= base_url() ?>cprograma" class="waves-effect" style="border-left: none"><i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>Programas</a>
@@ -112,7 +109,6 @@
                     <li>
                         <a href="<?= base_url() ?>cperiodos" class="waves-effect" style="border-left: none"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>Periodos</a>
                     </li>
-
                 </ul>
 
             </div>
@@ -132,15 +128,15 @@
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-               
-               
-                <!-- Code Bienvenida -->
-               
-            <div class="container-fluid">
-            <img src="<?= base_url() ?>/resources/images/infoInit.png" alt="IMG">
-            </div>
 
-               
+
+                <!-- Code Bienvenida -->
+
+                <div class="container-fluid">
+                    <img src="<?= base_url() ?>/resources/images/infoInit.png" alt="IMG">
+                </div>
+
+
             </div>
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2019 &copy; FACULTAD DE ESTUDIOS A DISTANCIA. SEDE TUNJA </footer>

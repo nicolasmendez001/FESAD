@@ -1017,7 +1017,7 @@ label {
 .top-left-part {
     width: 240px;
     float: left;
-    border-right: 1px solid rgba(0, 0, 0, .08)
+    background: #363435;
 }
 
 .top-left-part a {
@@ -1034,12 +1034,13 @@ label {
 
 .navbar-header {
     width: 100%;
-    background: #3c4451;
+    background:#363435;
     border: 0
 }
 
 .navbar-default {
-    border: 0
+    border: 0;
+    background: #FFCC28;
 }
 
 .navbar-top-links {
@@ -6522,7 +6523,8 @@ ul.select-row-icon li a.selected i.whn-hov, ul.select-row-icon li a:hover i.whn-
 }
 
 .sidebar {
-    overflow-y: auto
+    overflow-y: auto;
+    background: #FFCC28;
 }
 
 .sidebar .sidebar-nav.navbar-collapse {
