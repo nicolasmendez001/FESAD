@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: EdisonSolano
- * Date: 27/01/2019
- * Time: 1:45 PM
- */
-
 class mfesad extends CI_Model
 {
     function __construct()
@@ -86,6 +79,14 @@ class mfesad extends CI_Model
         } else {
             return FALSE;
         }
+    }
+
+    public function eliminarAsignatura($id){
+        $this->db->delete('asignatura', array('id_asignatura' => $id));
+    }
+
+    public function eliminarPeriodo($id){
+        $this->db->delete('periodo', array('id_periodo' => $id));
     }
 
     public function getAsignaturas(){
@@ -240,7 +241,6 @@ class mfesad extends CI_Model
     }
     public function eliminarDocente($id){
         $this->db->delete('docente', array('id_docente' => $id));
-
     }
     public function getClasesDocente($id){
         $data = $this->db->query("SELECT clase.id_clase, asignatura.nombre AS asignatura, asignatura.semestre AS semestre, salon.nombre AS salon, clase.title, clase.description, clase.color, clase.textColor, clase.start, clase.end FROM clase INNER JOIN asignatura ON clase.fk_asignatura=asignatura.id_asignatura INNER JOIN salon ON clase.fk_salon = salon.id_salon WHERE clase.fk_docente=$id ORDER BY asignatura");

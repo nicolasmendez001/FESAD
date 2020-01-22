@@ -21,4 +21,16 @@ class cperiodos extends CI_Controller
         $datos = array('periodos'=>$periodos);
         $this->load->view('vperiodos',$datos);
     }
+
+    public function eliminar($id)
+    {
+        if (!$this->session->userdata('username')) {
+            redirect('clogin');
+        }
+        $this->mfesad->eliminarPeriodo($id);
+
+        $result = $this->mfesad->getPeriodos();
+        $datos = array('periodos' => $result);
+        $this->load->view('vperiodos', $datos);
+    }
 }

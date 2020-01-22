@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: EdisonSolano
@@ -13,22 +14,44 @@ class casignaturas extends CI_Controller
         parent::__construct();
         $this->load->model('mfesad');
     }
-    public function index(){
+    public function index()
+    {
 
-        if (!$this->session->userdata('username')){
+        if (!$this->session->userdata('username')) {
             redirect('clogin');
         }
 
-        if (isset($_POST['nombre'])){
-            $this->mfesad->guardarAsignatura($_POST['programa'],$_POST['periodo'],$_POST['nombre'],$_POST['creditos'],$_POST['semestre']);
+        if (isset($_POST['nombre'])) {
+            $this->mfesad->guardarAsignatura($_POST['programa'], $_POST['periodo'], $_POST['nombre'], $_POST['creditos'], $_POST['semestre']);
         }
 
         $result = $this->mfesad->getAsignaturas();
         $programas = $this->mfesad->getProgramas();
         $periodos = $this->mfesad->getPeriodos();
-        $datos = array('consulta'=>$result,
-            'programas'=>$programas,
-            'periodos'=>$periodos);
-        $this->load->view('vasignaturas',$datos);
+        $datos = array(
+            'consulta' => $result,
+            'programas' => $programas,
+            'periodos' => $periodos
+        );
+        $this->load->view('vasignaturas', $datos);
+    }
+
+
+    public function eliminar($id)
+    {
+        if (!$this->session->userdata('username')) {
+            redirect('clogin');
+        }
+        $this->mfesad->eliminarAsignatura($id);
+
+        $result = $this->mfesad->getAsignaturas();
+        $programas = $this->mfesad->getProgramas();
+        $periodos = $this->mfesad->getPeriodos();
+        $datos = array(
+            'consulta' => $result,
+            'programas' => $programas,
+            'periodos' => $periodos
+        );
+        $this->load->view('vasignaturas', $datos);
     }
 }

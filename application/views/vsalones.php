@@ -23,7 +23,7 @@
     <!-- animation CSS -->
     <link href="<?= base_url() ?>/resources/dashboard/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?= base_url() ?>/resources/dashboard/css/style.css" rel="stylesheet">
+   
     <!-- color CSS -->
     <link href="<?= base_url() ?>/resources/dashboard/css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -55,18 +55,10 @@
                 <div class="top-left-part">
                     <!-- Logo -->
                     <a class="logo" href="index.html">
-                        <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon-->
-                            <!--                        <img src="--><? //= base_url() 
-                                                                        ?>
-                            <!--/resources/dashboard/plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon-->
-                            <!--                        <img src="-->--><? ////= base_url() 
-                                                                        ?>
-                            <!--<!--/resources/dashboard/plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />-->-->
-                            <!--                    </b>-->
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                                <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
-                            </span> </a>
+                        <span class="hidden-xs">
+                            <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        </span>
+                    </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -177,13 +169,9 @@
                                             <td><?php echo $fila->nombre ?></td>
                                             <td><?php echo $fila->ubicacion ?></td>
                                             <td>
-                                                <!--                                        <a href="--><?php //echo base_url('csalones/editar/' . $fila->id_salon); 
-                                                                                                            ?>
-                                                <!--"><button class="btn btn-warning">Editar</button></a>-->
+                                                <a href="<?php echo base_url('csalones/editar/' . $fila->id_salon); ?>"><button class="btn btn-warning">Editar</button></a>
                                                 <a href="<?php echo base_url('csalones/horario/' . $fila->id_salon); ?>"><button class="btn btn-primary">Ver</button></a>
-                                                <!--                                        <a href="--><?php //echo base_url('csalones/eliminar/' . $fila->id_salon); 
-                                                                                                            ?>
-                                                <!--"><button class="btn btn-danger">Eliminar</button></a>-->
+                                                <a href="<?php echo base_url('csalones/eliminar/' . $fila->id_salon); ?>"><button class="btn btn-danger">Eliminar</button></a>
                                             </td>
                                         </tr>
 
@@ -270,6 +258,7 @@
     <script src="<?= base_url() ?>/resources/dashboard/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="<?= base_url() ?>/resources/dashboard/js/custom.min.js"></script>
+    <link href="<?= base_url() ?>/resources/dashboard/css/style.css" rel="stylesheet">
 
 
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>

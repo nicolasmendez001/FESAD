@@ -24,14 +24,6 @@
     <link href="<?= base_url() ?>/resources/dashboard/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?= base_url() ?>/resources/dashboard/css/style.css" rel="stylesheet">
-    <!-- color CSS -->
-    <link href="<?= base_url() ?>/resources/dashboard/css/colors/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body class="fix-header">
@@ -55,21 +47,10 @@
                 <div class="top-left-part">
                     <!-- Logo -->
                     <a class="logo" href="index.html">
-                        <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon-->
-                            <!--                        <img src="-->
-                            <? //= base_url() 
-                            ?>
-                            <!--/resources/dashboard/plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon-->
-                            <!--                        <img src="-->-->
-                            <? ////= base_url() 
-                            ?>
-                            <!--<!--/resources/dashboard/plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />-->
-                            -->
-                            <!--                    </b>-->
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                                <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
-                            </span> </a>
+                        <span class="hidden-xs">
+                            <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        </span>
+                    </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -84,9 +65,6 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-header -->
-            <!-- /.navbar-top-links -->
-            <!-- /.navbar-static-side -->
         </nav>
         <!-- End Top Navigation -->
         <!-- ============================================================== -->
@@ -99,8 +77,8 @@
                     </h3>
                 </div>
                 <ul class="nav" id="side-menu">
-                    <li style="padding: 70px 0 0;">
-                        <a href="<?= base_url() ?>" class="waves-effect" style="border-left: none"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
+                <li style="padding: 70px 0 0;">
+                        <a href="<?= base_url() ?>welcome" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
                     </li>
                     <li>
                         <a href="<?= base_url() ?>cdocentes" class="waves-effect" style="border-left: none"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
@@ -140,20 +118,7 @@
                             <button class="btn btn-success">Agregar Periodo</button>
                         </a>
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.row -->
-                <!-- ============================================================== -->
-                <!-- Different data widgets -->
-                <!-- ============================================================== -->
-                <!-- .row -->
-
-                <!--/.row -->
-                <!--row -->
-
-                <!-- ============================================================== -->
-                <!-- table -->
-                <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="white-box">
@@ -177,6 +142,9 @@
                                                 <td><?php echo $i ?></td>
                                                 <td><?php echo $fila->anio ?></td>
                                                 <td><?php echo $fila->semestre ?></td>
+                                                <td>
+                                                    <a href="<?php echo base_url('cperiodos/eliminar/' . $fila->id_periodo); ?>"><button class="btn btn-danger">Eliminar</button></a>
+                                                </td>
                                             </tr>
                                             <?php $i++ ?>
                                         <?php } ?>
@@ -186,12 +154,9 @@
                         </div>
                     </div>
                 </div>
-
-
                 <!-- ============================================================== -->
                 <!-- chat-listing & recent comments -->
                 <!-- ============================================================== -->
-
                 <div class="row bg-title">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Agregar Periodo</h4>
@@ -240,7 +205,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2019 &copy; FACULTAD DE ESTUDIOS A DISTANCIA. SEDE TUNJA </footer>
@@ -274,8 +238,6 @@
     <script src="<?= base_url() ?>/resources/dashboard/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="<?= base_url() ?>/resources/dashboard/js/custom.min.js"></script>
-
-
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="<?= base_url() ?>/resources/js/tabla.js"></script>

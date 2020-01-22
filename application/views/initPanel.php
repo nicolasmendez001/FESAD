@@ -29,14 +29,6 @@ header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
     <link href="<?= base_url() ?>/resources/dashboard/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?= base_url() ?>/resources/dashboard/css/style.css" rel="stylesheet">
-    <!-- color CSS -->
-    <link href="<?= base_url() ?>/resources/dashboard/css/colors/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body class="fix-header">
@@ -56,8 +48,8 @@ header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
-            <div class="navbar-header" style="background-color: #363435;">
-                <div class="top-left-part" style="background-color: #363435;">
+            <div class="navbar-header">
+                <div class="top-left-part">
                     <!-- Logo -->
                     <a class="logo" href="index.html">
                         <span class="hidden-xs">
@@ -85,7 +77,7 @@ header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <div class="navbar-default sidebar" role="navigation" style="background: 	#FFCC28;">
+        <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
                     <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
@@ -110,9 +102,7 @@ header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
                         <a href="<?= base_url() ?>cperiodos" class="waves-effect" style="border-left: none"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>Periodos</a>
                     </li>
                 </ul>
-
             </div>
-
         </div>
         <!-- ============================================================== -->
         <!-- End Left Sidebar -->
@@ -128,10 +118,7 @@ header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-
-
                 <!-- Code Bienvenida -->
-
                 <div class="container-fluid">
                     <img src="<?= base_url() ?>/resources/images/infoInit.png" alt="IMG">
                 </div>
