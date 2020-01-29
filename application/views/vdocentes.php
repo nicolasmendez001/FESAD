@@ -153,26 +153,10 @@
 
                                         <?php $i++ ?>
                                     <?php } ?>
-                                    <!--                            <td>-->
-                                    <!--                                <div class="col-12 col-md-4 align-self-center">-->
-                                    <!--                                    <ul class="list-unstyled mb-0 lis-line-height-2 text-md-left text-center">-->
-                                    <!--                                        <li><i class="fa fa-phone pl-2"></i>+88 25 5894 2589</li>-->
-                                    <!--                                        <li><A href="#" class="text-white"><i class="fa fa-envelope pl-2"></i> example@lister.com</A></li>-->
-                                    <!--                                        <li><A href="#" class="text-white"><i class="fa fa-map-o pl-2"></i> FirstStreet, New York, USA</A></li>-->
-                                    <!--                                    </ul>-->
-                                    <!--                                </div>-->
-                                    <!--                            </td>-->
                                 </tbody>
                             </table>
                         </div>
 
-                    </div>
-                    <div class="form-group">
-                        <div style="alignment: center">
-                            <!--                        <a href="--><? //= base_url() 
-                                                                    ?>
-                            <!--Coperarios/reporte"><button class="btn btn-success">Generar Reporte</button></a>-->
-                        </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -183,8 +167,6 @@
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Agregar Docente</h4>
                     </div>
-
-                    <!-- /.col-lg-12 -->
                 </div>
 
                 <div class="col-md-12 col-xs-12" id="nuevodocente">
