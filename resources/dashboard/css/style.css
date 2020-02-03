@@ -75,6 +75,11 @@ h5 {
     display: block
 }
 
+.addDocente{
+    color: #000000;
+    font-weight:bold;
+}
+
 .light_op_text {
     color: rgba(255, 255, 255, .5)
 }
@@ -6598,7 +6603,7 @@ ul.select-row-icon li a.selected i.whn-hov, ul.select-row-icon li a:hover i.whn-
 
 #side-menu {
     overflow: hidden;
-    font-size: large;
+    font-size: x-large;
 }
 
 .sidebar .sidebar-search {

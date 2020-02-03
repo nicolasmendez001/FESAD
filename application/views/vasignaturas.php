@@ -80,7 +80,7 @@
                     </h3>
                 </div>
                 <ul class="nav" id="side-menu">
-                <li style="padding: 70px 0 0;">
+                    <li style="padding: 70px 0 0;">
                         <a href="<?= base_url() ?>welcome" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
                     </li>
                     <li>
@@ -153,15 +153,6 @@
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Creditos</th>
-                                            <th>Semestre</th>
-                                            <th></th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         <?php $i = 1 ?>
                                         <?php foreach ($consulta->result() as $fila) { ?>
@@ -172,7 +163,7 @@
                                                 <td><?php echo $fila->semestre ?></td>
                                                 <td>
                                                     <a href="<?php echo base_url('ccalendarioasignatura/horario/' . $fila->id_asignatura); ?>">
-                                                        <button class="btn btn-warning">Editar</button>
+                                                        <button class="btn btn-warning">Editar horario</button>
                                                     </a>
                                                     <a href="<?php echo base_url('casignaturas/eliminar/' . $fila->id_asignatura); ?>"><button class="btn btn-danger">Eliminar</button></a>
                                                 </td>

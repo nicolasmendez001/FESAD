@@ -23,15 +23,7 @@
     <!-- animation CSS -->
     <link href="<?= base_url() ?>/resources/dashboard/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
-
-    <!-- color CSS -->
-    <link href="<?= base_url() ?>/resources/dashboard/css/colors/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="<?= base_url() ?>/resources/dashboard/css/style.css" rel="stylesheet">
 </head>
 
 <body class="fix-header">
@@ -57,17 +49,15 @@
                     <a class="logo" href="index.html">
                         <span class="hidden-xs">
                             <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
-                        </span>
-                    </a>
+                        </span> </a>
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
-
-                    <li>
-                        <a class="profile-pic" href="#"> <img src="<?= base_url() ?>/resources/dashboard/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">FESAD</b></a>
-                    </li>
                     <li>
                         <a href="<?php echo base_url('clogin/cerrarsesion/'); ?>"><button class="btn btn-danger">Cerrar Sesión</button></a>
+                    </li>
+                    <li>
+                        <a class="profile-pic" href="#"> <img src="<?= base_url() ?>/resources/dashboard/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">FESAD</b></a>
                     </li>
                 </ul>
             </div>
@@ -89,13 +79,13 @@
                         <a href="<?= base_url() ?>welcome" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
                     </li>
                     <li>
-                        <a href="<?= base_url() ?>cdocentes" class="waves-effect" style="border-left: none"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
+                        <a href="" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
                     </li>
                     <li>
                         <a href="<?= base_url() ?>cprograma" class="waves-effect" style="border-left: none"><i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>Programas</a>
                     </li>
                     <li>
-                        <a href="<?= base_url() ?>csalones" class="waves-effect"><i class="fa fa-building fa-fw" aria-hidden="true"></i>Salones</a>
+                        <a href="<?= base_url() ?>csalones" class="waves-effect" style="border-left: none"><i class="fa fa-building fa-fw" aria-hidden="true"></i>Salones</a>
                     </li>
                     <li>
                         <a href="<?= base_url() ?>casignaturas" class="waves-effect"><i class="fa fa-book fa-fw" aria-hidden="true"></i>Asignaturas</a>
@@ -103,120 +93,42 @@
                     <li>
                         <a href="<?= base_url() ?>cperiodos" class="waves-effect" style="border-left: none"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>Periodos</a>
                     </li>
-
                 </ul>
 
             </div>
 
         </div>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page Content -->
-        <!-- ============================================================== -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Panel de Administración de salones</h4>
+                        <h4 class="page-title">Editar Salón</h4>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <a href="#nuevodocente"><button class="btn btn-success">Agregar Salón</button></a>
-                    </div>
-                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.row -->
-                <!-- ============================================================== -->
-                <!-- Different data widgets -->
-                <!-- ============================================================== -->
-                <!-- .row -->
+                <?php foreach ($consulta->result() as $fila) { ?>
 
-                <!--/.row -->
-                <!--row -->
-
-                <!-- ============================================================== -->
-                <!-- table -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><strong>Salones</strong></h3>
-                                <div class="pull-right">
-                                    <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-                                        <i class="glyphicon glyphicon-filter"></i>
-                                    </span>
+                    <div class="col-md-12 col-xs-12" id="nuevodocente">
+                        <div class="white-box">
+                            <form class="form-horizontal form-material" action="<?php echo base_url('csalones/editar/' . $fila->id_salon); ?>" method="POST" enctype="multipart/form-data" id="formulario">
+                                <div class="form-group">
+                                    <label class="col-md-12">Nombre</label>
+                                    <div class="col-md-12">
+                                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control form-control-line" required> </div>
                                 </div>
-                            </div>
-                            <div class="panel-body">
-                                <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filtrar Salón" />
-                            </div>
-                            <table class="table table-hover" id="dev-table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nombre</th>
-                                        <th>Ubicacion</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $i = 1 ?>
-                                    <?php foreach ($consulta->result() as $fila) { ?>
-                                        <tr>
-                                            <td><?php echo $i ?></td>
-                                            <td><?php echo $fila->nombre ?></td>
-                                            <td><?php echo $fila->ubicacion ?></td>
-                                            <td>
-                                                <a href="<?php echo base_url('csalones/editar/' . $fila->id_salon); ?>"><button class="btn btn-warning">Editar</button></a>
-                                                <a href="<?php echo base_url('csalones/horario/' . $fila->id_salon); ?>"><button class="btn btn-primary">Ver</button></a>
-                                                <a href="<?php echo base_url('csalones/eliminar/' . $fila->id_salon); ?>"><button class="btn btn-danger">Eliminar</button></a>
-                                            </td>
-                                        </tr>
+                                <div class="form-group">
+                                    <label for="example-email" class="col-md-12">Ubicación</label>
+                                    <div class="col-md-12">
+                                        <input type="text" name="ubicacion" id="ubicacion" placeholder="ubicacion" class="form-control form-control-line" required> </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="btn btn-success" type="submit" value="Guardar Cambios" name="" />
+                                    </div>
+                                </div>
 
-                                        <?php $i++ ?>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
+                            </form>
                         </div>
                     </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- chat-listing & recent comments -->
-                <!-- ============================================================== -->
-
-                <div class="row bg-title">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Agregar Salón</h4>
-                    </div>
-
-                    <!-- /.col-lg-12 -->
-                </div>
-
-                <div class="col-md-12 col-xs-12" id="nuevodocente">
-                    <div class="white-box">
-                        <form class="form-horizontal form-material" action="" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label class="col-md-12">Nombre</label>
-                                <div class="col-md-12">
-                                    <input type="text" name="nombre" placeholder="Salon ABC" class="form-control form-control-line" required> </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="example-email" class="col-md-12">Ubicación</label>
-                                <div class="col-md-12">
-                                    <input type="text" name="ubicacion" placeholder="Edificio ABC" class="form-control form-control-line" id="example-email" required> </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input class="btn btn-success" type="submit" value="Guardar" name="" />
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
             </div>
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2019 &copy; FACULTAD DE ESTUDIOS A DISTANCIA. SEDE TUNJA </footer>
@@ -228,6 +140,11 @@
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
+    <script>
+        document.getElementById("nombre").value = "<?php echo $fila->nombre ?>"
+        document.getElementById("ubicacion").value = "<?php echo $fila->ubicacion ?>"
+        <?php } ?>
+    </script>
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
@@ -250,14 +167,13 @@
     <script src="<?= base_url() ?>/resources/dashboard/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="<?= base_url() ?>/resources/dashboard/js/custom.min.js"></script>
-    <link href="<?= base_url() ?>/resources/dashboard/css/style.css" rel="stylesheet">
+    <script src="<?= base_url() ?>/resources/dashboard/js/dashboard1.js"></script>
+    <script src="<?= base_url() ?>/resources/dashboard/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
 
 
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="<?= base_url() ?>/resources/js/tabla.js"></script>
-
-
 </body>
 
 </html>

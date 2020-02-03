@@ -64,7 +64,7 @@ class cdocentes extends CI_Controller
     }
     public function clases($id)
     {
-        $clases = $this->mfesad->getClasesDocente($id);
+        $clases = $this->mfesad->getClasesDocenteFormat($id);
         echo json_encode($clases->result_array());
     }
 
@@ -79,15 +79,13 @@ class cdocentes extends CI_Controller
             'count' => $count,
             'clases' => $class
         );
-
+        
         $html= $this->load->view('pdf/datos_docente', $datos, true);
         $this->mydompdf->load_html($html);
         $this->mydompdf->render();
         $this->mydompdf->set_base_path('<?= base_url() ?>/resources/css/dompdf.css'); //agregar de nuevo el css
         $this->mydompdf->stream("reportedocente.pdf", array("Attachment" => false));
     }
-
-    
 
     public function notificar($id)
     {

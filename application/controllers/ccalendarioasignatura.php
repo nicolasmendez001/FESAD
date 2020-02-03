@@ -35,6 +35,7 @@ class ccalendarioasignatura extends CI_Controller
         $clases = $this->mfesad->getClasesAsignatura($id);
         echo json_encode($clases);
     }
+    
     public function asignatura(){
         $s='Dayana Solano';
         $footerData['data'] = array(
@@ -58,7 +59,8 @@ class ccalendarioasignatura extends CI_Controller
                     $_POST['color'],
                     $_POST['textColor'],
                     $_POST['start'],
-                    $_POST['end']
+                    $_POST['end'],
+                    $_POST['dia_semana']
                 );
                 break;
             case 'eliminar':
@@ -75,20 +77,19 @@ class ccalendarioasignatura extends CI_Controller
                     $_POST['color'],
                     $_POST['textColor'],
                     $_POST['start'],
-                    $_POST['end']
+                    $_POST['end'],
+                    $_POST['dia_semana']
                 );
                 break;
             default:
                 break;
         }
-
         echo json_encode($datos);
-
     }
 
     public function validarSalon(){
         $mensaje = null;
-        $clases = $this->mfesad->validarHorarioSalon($_POST['fk_salon'],$_POST['start'],$_POST['end']);
+        $clases = $this->mfesad->validarHorarioSalon($_POST['fk_salon'],$_POST['start'],$_POST['end'],$_POST['dia_semana']);
         if ($clases!=null){
             foreach($clases->result() as $fila) {
                 $salon = $this->mfesad->getSalon($fila->fk_salon);
@@ -108,7 +109,7 @@ class ccalendarioasignatura extends CI_Controller
     }
     public function validarDocente(){
         $mensaje = null;
-        $clases = $this->mfesad->validarHorarioSalon($_POST['fk_docente'],$_POST['start'],$_POST['end']);
+        $clases = $this->mfesad->validarHorarioDocente($_POST['fk_docente'],$_POST['start'],$_POST['end'],$_POST['dia_semana']);
         if ($clases!=null){
             foreach($clases->result() as $fila) {
                 $salon = $this->mfesad->getSalon($fila->fk_salon);
@@ -122,9 +123,6 @@ class ccalendarioasignatura extends CI_Controller
                 $mensaje = "Docente no disponible, asignado a ".$mensaje;
             }
         }
-
         echo json_encode($mensaje);
     }
-
-
 }

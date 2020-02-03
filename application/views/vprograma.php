@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -46,7 +46,6 @@
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
-
                     <li>
                         <a class="profile-pic" href="#"> <img src="<?= base_url() ?>/resources/dashboard/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">FESAD</b></a>
                     </li>
@@ -103,7 +102,7 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Panel de Administración Programas</h4>
+                        <h4 class="page-title">Panel de Administración Programas académicos</h4>
                     </div>
                     <div class="col-lg-8 col-md-4 col-sm-4 col-xs-12">
                         <ol class="breadcrumb">

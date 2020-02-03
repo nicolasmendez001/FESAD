@@ -52,29 +52,22 @@
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li>
-                        <a href="<?php echo base_url('clogin/cerrarsesion/'); ?>"><button class="btn btn-danger">Cerrar Sesión</button></a>
+                        <a class="profile-pic" href="#"> <img src="<?= base_url() ?>/resources/dashboard/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">FESAD</b></a>
                     </li>
                     <li>
-                        <a class="profile-pic" href="#"> <img src="<?= base_url() ?>/resources/dashboard/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">FESAD</b></a>
+                        <a href="<?php echo base_url('clogin/cerrarsesion/'); ?>"><button class="btn btn-danger">Cerrar Sesión</button></a>
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-header -->
-            <!-- /.navbar-top-links -->
-            <!-- /.navbar-static-side -->
         </nav>
-        <!-- End Top Navigation -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
                     <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
                 </div>
                 <ul class="nav" id="side-menu">
-                    <li style="padding: 70px 0 0;">
-                    <a href="<?= base_url() ?>welcome" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
+                <li style="padding: 70px 0 0;">
+                        <a href="<?= base_url() ?>welcome" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
                     </li>
                     <li>
                         <a href="<?= base_url() ?>cdocentes" class="waves-effect" style="border-left: none"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
@@ -106,12 +99,12 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Panel de Administración Sitios</h4>
+                        <h4 class="page-title">Panel de Administración De salones</h4>
                     </div>
                     <div class="col-lg-8 col-md-4 col-sm-4 col-xs-12">
                         <ol class="breadcrumb">
                             <li><a href="<?= base_url() ?>">Inicio</a></li>
-                            <li><a href="<?= base_url() ?>csalones">Sitios</a></li>
+                            <li><a href="<?= base_url() ?>csalones">Salones</a></li>
                             <?php foreach ($consulta->result() as $fila) { ?>
                                 <li class="active"><?php echo $fila->nombre ?></li>
                             <?php } ?>
@@ -168,10 +161,10 @@
                             <li>
                                 <div class="row" style="padding: 10px;">
                                     <div class="col-lg-3 col-md-4 col-xs-12">
-                                        Fecha:
+                                        Día:
                                     </div>
                                     <div class="col-lg-9 col-md-4 col-xs-12">
-                                        <label id="txtFecha" />
+                                        <label id="txtDia" />
                                     </div>
                                 </div>
                             </li>
@@ -275,21 +268,26 @@
                 $('#calendar').fullCalendar({
                     options: {
                         locale: 'es'
-
                     },
                     <?php foreach ($consulta->result() as $fila) { ?>
                         events: '<?= site_url("csalones/clases/"); ?>' + <?php echo $fila->id_salon ?>,
                     <?php } ?>
                     header: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'month,bsicWeek, basicDay, agendaWeek,agendaDay'
-                    },
+                    left: '',
+                    center: '',
+                    right: '',
+                },
+                editable: false,
+                defaultDate: '2020-02-01',
+                defaultView: 'agendaWeek',
+                columnFormat: 'dddd',
+                minTime: "06:00",
+                maxTime: "24:00",
                     eventClick: function(calEvent, jsEvent, view) {
                         $('#txtAsignatura').text(calEvent.asignatura);
                         $('#txtDescripcion').text(calEvent.description);
                         fechahora = calEvent.start._i.split(" ");
-                        $('#txtFecha').text(fechahora[0]);
+                        $('#txtDia').text(calEvent.dia_semana);
                         $('#horastart').text(fechahora[1]);
                         fechahora = calEvent.end._i.split(" ");
                         $('#horaend').text(fechahora[1]);

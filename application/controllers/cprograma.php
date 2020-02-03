@@ -31,6 +31,7 @@ class cprograma extends CI_Controller
         'id'=>$id);
         $this->load->view('vperiodoprograma',$datos);
     }
+
     public function asignaturas($id_programa,$id_periodo){
         if (!$this->session->userdata('username')){
             redirect('clogin');
@@ -38,6 +39,18 @@ class cprograma extends CI_Controller
         $result = $this->mfesad->getAsignaturasPrograma($id_programa,$id_periodo);
         $datos = array('consulta'=>$result);
         $this->load->view('vperiodoasignaturas',$datos);
+    }
+
+    public function eliminar($id)
+    {
+        if (!$this->session->userdata('username')) {
+            redirect('clogin');
+        }
+        $this->mfesad->eliminarPrograma($id);
+
+        $result = $this->mfesad->getProgramas();
+        $datos = array('consulta' => $result);
+        $this->load->view('vprograma', $datos);
     }
 
 }

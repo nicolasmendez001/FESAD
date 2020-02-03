@@ -51,12 +51,12 @@
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li>
+                        <a class="profile-pic" href="#"> <img src="<?= base_url() ?>/resources/dashboard/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">FESAD</b></a>
+                    </li>
+                    <li>
                         <a href="<?php echo base_url('clogin/cerrarsesion/'); ?>">
                             <button class="btn btn-danger">Cerrar Sesión</button>
                         </a>
-                    </li>
-                    <li>
-                        <a class="profile-pic" href="#"> <img src="<?= base_url() ?>/resources/dashboard/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">FESAD</b></a>
                     </li>
                 </ul>
             </div>
@@ -115,8 +115,8 @@
                         <div class="form-group">
                             <div>
                                 <?php foreach ($consulta->result() as $fila) { ?>
-                                    <a href="<?= base_url('cdocentes/reporte/' . $fila->id_docente) ?>"><button class="btn btn-success">Generar Reporte</button></a>
-                                    <a href="<?= base_url('cdocentes/notificar/' . $fila->id_docente) ?>"><button class="btn btn-warning">Enviar Reporte</button></a>
+                                    <a target="_blank" href="<?= base_url('cdocentes/reporte/' . $fila->id_docente) ?>"><button formtarget="_blank" class="btn btn-success addDocente">Generar Reporte</button></a>
+                                    <a href="<?= base_url('cdocentes/notificar/' . $fila->id_docente) ?>"><button class="btn btn-warning addDocente">Enviar Reporte</button></a>
                                 <?php } ?>
                             </div>
                         </div>
@@ -236,13 +236,12 @@
                                     <th>Semestre</th>
                                     <th>Salon</th>
                                     <th>Descripción</th>
-                                    <th>Fecha</th>
+                                    <th>Día</th>
                                     <th>Hora</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php if ($count) { ?>
-
                                     <?php $i = 1 ?>
                                     <?php foreach ($clases->result() as $fila) { ?>
                                         <tr>
@@ -251,14 +250,8 @@
                                             <td><?php echo $fila->semestre ?></td>
                                             <td><?php echo $fila->salon ?></td>
                                             <td><?php echo $fila->description ?></td>
-                                            <?php
-                                            $fechaStart = explode(" ", $fila->start);
-                                            ?>
-                                            <td><?php echo $fechaStart[0] ?></td>
-                                            <?php
-                                            $fechaEnd = explode(" ", $fila->end);
-                                            ?>
-                                            <td><?php echo $fechaStart[1] . "-" . $fechaEnd[1] ?></td>
+                                            <td><?php echo $fila->dia_semana ?></td>
+                                            <td><?php echo $fila->start . "-" . $fila->end ?></td>
                                         </tr>
 
                                         <?php $i++ ?>
@@ -319,10 +312,10 @@
                         <li>
                             <div class="row" style="padding: 10px;">
                                 <div class="col-lg-3 col-md-4 col-xs-12">
-                                    Fecha:
+                                    Día:
                                 </div>
                                 <div class="col-lg-9 col-md-4 col-xs-12">
-                                    <label id="txtFecha" />
+                                    <label id="txtDay" />
                                 </div>
                             </div>
                         </li>
@@ -349,7 +342,7 @@
                         <li>
                             <div class="row" style="padding: 10px;">
                                 <div class="col-lg-3 col-md-4 col-xs-12">
-                                    Sitio:
+                                    Salon:
                                 </div>
                                 <div class="col-lg-9 col-md-4 col-xs-12">
                                     <label id="txtdocente" />
@@ -370,6 +363,7 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" id="borrar" class="btn btn-danger">Borrar Clase</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
@@ -425,23 +419,58 @@
                     events: '<?= site_url("cdocentes/clases/"); ?>' + <?php echo $fila->id_docente ?>,
                 <?php } ?>
                 header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,bsicWeek,  agendaWeek,agendaDay'
+                    left: '',
+                    center: '',
+                    right: '',
                 },
+                editable: false,
+                defaultDate: '2020-02-01',
+                defaultView: 'agendaWeek',
+                columnFormat: 'dddd',
+                minTime: "06:00",
+                maxTime: "24:00",
                 eventClick: function(calEvent, jsEvent, view) {
                     $('#txtAsignatura').text(calEvent.asignatura);
                     $('#txtDescripcion').text(calEvent.description);
                     fechahora = calEvent.start._i.split(" ");
-                    $('#txtFecha').text(fechahora[0]);
+                    $('#txtDay').text(calEvent.dia_semana);
                     $('#horastart').text(fechahora[1]);
                     fechahora = calEvent.end._i.split(" ");
                     $('#horaend').text(fechahora[1]);
                     $('#txtdocente').text(calEvent.salon);
                     $('#modalCenter').modal();
+                    datosGUI(calEvent.id_clase);
                 }
             });
         });
+    </script>
+    <script>
+        $('#borrar').click(function() {
+            enviarDatos('eliminar', nuevaClase);
+        });
+
+        function datosGUI(id) {
+                nuevaClase = {
+                    id_clase: id
+                };
+            }
+
+        function enviarDatos(opcion, objClase, modal) {
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url() ?>" + "ccalendarioasignatura/clase/" + opcion,
+                    data: objClase,
+                    success: function(response) {
+                        $('#calendar').fullCalendar('refetchEvents');
+                        if (!modal) {
+                            $('#modalCenter').modal('toggle');
+                        }
+                    },
+                    error: function() {
+                        alert("Error al Guardar");
+                    }
+                });
+            }
     </script>
 
     <script>

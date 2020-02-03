@@ -109,7 +109,7 @@
                         <h4 class="page-title">Panel de Administración Docente</h4>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <a href="#nuevodocente"><button class="btn btn-success">Agregar Docente</button></a>
+                        <a href="#nuevodocente"><button class="btn btn-success addDocente">Agregar Docente</button></a>
                     </div>
                 </div>
                 <div class="row">
