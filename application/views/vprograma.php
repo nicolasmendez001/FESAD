@@ -27,24 +27,15 @@
 </head>
 
 <body class="fix-header">
-
-    <!-- ============================================================== -->
-    <!-- Wrapper -->
-    <!-- ============================================================== -->
     <div id="wrapper">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header">
                 <div class="top-left-part">
-                    <!-- Logo -->
                     <a class="logo" href="index.html">
                         <span class="hidden-xs">
-                                <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
-                            </span> </a>
+                            <img src="<?= base_url() ?>/resources/dashboard/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        </span> </a>
                 </div>
-                <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li>
                         <a class="profile-pic" href="#"> <img src="<?= base_url() ?>/resources/dashboard/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">FESAD</b></a>
@@ -54,14 +45,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-header -->
-            <!-- /.navbar-top-links -->
-            <!-- /.navbar-static-side -->
         </nav>
-        <!-- End Top Navigation -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
@@ -101,10 +85,10 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row bg-title">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Panel de Administración Programas académicos</h4>
                     </div>
-                    <div class="col-lg-8 col-md-4 col-sm-4 col-xs-12">
+                    <div class="col-lg-7 col-md-4 col-sm-4 col-xs-12">
                         <ol class="breadcrumb">
                             <li><a href="<?= base_url() ?>">Inicio</a></li>
                             <li class="active">Programas</li>
@@ -117,91 +101,95 @@
                 <!-- table -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="white-box">
-                            <h3 class="box-title">Programas Académicos</h3>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Semestres</th>
-                                            <th>Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $i = 1 ?>
-                                        <?php foreach ($consulta->result() as $fila) { ?>
-                                            <tr>
-                                                <td><?php echo $i ?></td>
-                                                <td><?php echo $fila->nombre ?></td>
-                                                <td><?php echo $fila->semestres ?></td>
-                                                <td>
-                                                    <a href="<?php echo base_url('cprograma/programa/' . $fila->id_programa); ?>"><button class="btn btn-warning">Editar</button></a>
-                                                    <a href="<?php echo base_url('cprograma/eliminar/' . $fila->id_programa); ?>"><button class="btn btn-danger">Eliminar</button></a>
-                                                </td>
-                                            </tr>
-
-                                            <?php $i++ ?>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+                                <h2 class="text-center"><strong>Lista de Programas académicos</strong></h2>
                             </div>
+                            <div class="panel-body">
+                                <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filtrar Docentes" />
+                            </div>
+                            <table class="table table-hover" id="dev-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Semestres</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1 ?>
+                                    <?php foreach ($consulta->result() as $fila) { ?>
+                                        <tr>
+                                            <td><?php echo $i ?></td>
+                                            <td><?php echo $fila->nombre ?></td>
+                                            <td><?php echo $fila->semestres ?></td>
+                                            <td>
+                                                <a href="<?php echo base_url('cprograma/editar/' . $fila->id_programa); ?>"><button class="btn btn-warning">Editar</button></a>
+                                                <a href="<?php echo base_url('cprograma/eliminar/' . $fila->id_programa); ?>"><button class="btn btn-danger">Eliminar</button></a>
+                                            </td>
+                                        </tr>
+
+                                        <?php $i++ ?>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- chat-listing & recent comments -->
-                <!-- ============================================================== -->
-                <div class="row bg-title">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Agregar Programa Académico</h4>
-                    </div>
-                </div>
-
-                <div class="col-md-12 col-xs-12" id="nuevodocente">
-                    <div class="white-box">
-                        <form class="form-horizontal form-material" action="" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label class="col-md-12">Nombre</label>
-                                <div class="col-md-12">
-                                    <input type="text" name="nombre" placeholder="Nombre" class="form-control form-control-line" required></div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Semestres</label>
-                                <div class="col-md-12">
-                                    <select class="form-control pull-right row b-none" name="semestre">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input class="btn btn-success" type="submit" value="Guardar" name="" />
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
             </div>
-            <!-- /.container-fluid -->
-            <footer class="footer text-center"> 2019 &copy; FACULTAD DE ESTUDIOS A DISTANCIA. SEDE TUNJA </footer>
+            <!-- ============================================================== -->
+            <!-- chat-listing & recent comments -->
+            <!-- ============================================================== -->
+            <div class="row bg-title">
+                < <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12">
+                        <h2 class="text-center"><strong>Agregar programa académico</strong></h2>
+                    </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12" id="nuevodocente">
+                <div class="white-box">
+                    <form class="form-horizontal form-material" action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-md-12">Nombre</label>
+                            <div class="col-md-12">
+                                <input type="text" name="nombre" placeholder="Nombre" class="form-control form-control-line" required></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Semestres</label>
+                            <div class="col-md-12">
+                                <select class="form-control pull-right row b-none" name="semestre">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input class="btn btn-success" type="submit" value="Guardar" name="" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page Content -->
-        <!-- ============================================================== -->
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2019 &copy; FACULTAD DE ESTUDIOS A DISTANCIA. SEDE TUNJA </footer>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page Content -->
+    <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
@@ -230,13 +218,9 @@
     <script src="<?= base_url() ?>/resources/dashboard/js/custom.min.js"></script>
     <script src="<?= base_url() ?>/resources/dashboard/js/dashboard1.js"></script>
     <script src="<?= base_url() ?>/resources/dashboard/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-
-
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="<?= base_url() ?>/resources/js/tabla.js"></script>
-
-
 </body>
 
 </html>

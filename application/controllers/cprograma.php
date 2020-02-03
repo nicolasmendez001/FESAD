@@ -32,6 +32,20 @@ class cprograma extends CI_Controller
         $this->load->view('vperiodoprograma',$datos);
     }
 
+    public function editar($id)
+    {
+        if (!$this->session->userdata('username')) {
+            redirect('clogin');
+        }
+        if (isset($_POST['nombre'])) {
+            $this->mfesad->editarPrograma($id, $_POST['nombre'], $_POST['semestre']);
+            redirect('cprograma');
+        }
+        $result = $this->mfesad->getPrograma($id);
+        $datos = array('consulta' => $result);
+        $this->load->view('veditarprograma', $datos);
+    }
+
     public function asignaturas($id_programa,$id_periodo){
         if (!$this->session->userdata('username')){
             redirect('clogin');

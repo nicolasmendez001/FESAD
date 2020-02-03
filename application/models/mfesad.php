@@ -55,6 +55,14 @@ class mfesad extends CI_Model
         $this->db->delete('programa', array('id_programa' => $id));
     }
 
+    public function editarPrograma($id, $nom, $semestres)
+    {
+        $this->db->where('id_programa', $id);
+        $this->db->set('nombre', $nom);
+        $this->db->set('semestres', $semestres);
+        return $this->db->update('programa');
+    }
+
 
     /*------------------------Periodo---------------------------------*/
     public function getPeriodos()

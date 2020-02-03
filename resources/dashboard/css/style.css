@@ -76,7 +76,8 @@ h5 {
 }
 
 .addDocente{
-    color: #000000;
+    background-color: orangered;
+    color: black;
     font-weight:bold;
 }
 

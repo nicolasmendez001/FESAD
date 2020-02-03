@@ -115,7 +115,7 @@
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <a href="#nuevodocente">
-                            <button class="btn btn-success">Agregar Periodo</button>
+                            <button class="btn btn-warning addDocente">Agregar Periodo</button>
                         </a>
                     </div>
                 </div>

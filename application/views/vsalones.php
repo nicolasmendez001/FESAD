@@ -122,7 +122,7 @@
                         <h4 class="page-title">Panel de Administración de salones</h4>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <a href="#nuevodocente"><button class="btn btn-success">Agregar Salón</button></a>
+                        <a href="#nuevodocente"><button class="btn btn-warning addDocente">Agregar Salón</button></a>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -141,13 +141,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><strong>Salones</strong></h3>
-                                <div class="pull-right">
-                                    <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-                                        <i class="glyphicon glyphicon-filter"></i>
-                                    </span>
-                                </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <h2 class="text-center"><strong>Lista de salones</strong></h2>
                             </div>
                             <div class="panel-body">
                                 <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filtrar Salón" />
@@ -187,8 +182,8 @@
                 <!-- ============================================================== -->
 
                 <div class="row bg-title">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Agregar Salón</h4>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <h2 class="text-center"><strong>Agregar Salón</strong></h2>
                     </div>
 
                     <!-- /.col-lg-12 -->
