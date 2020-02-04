@@ -101,11 +101,12 @@
         <!-- ============================================================== -->
         <!-- Page Content -->
         <!-- ============================================================== -->
-        <div id="page-wrapper">
+        <div id="page-wrapper" >
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Panel de Administración Asignaturas</h4>
+                        <button id="print" class="btn btn-warning addDocente"> imprimir</button>
                     </div>
                     <div class="col-lg-8 col-md-4 col-sm-4 col-xs-12">
                         <ol class="breadcrumb">
@@ -314,6 +315,11 @@
 
         <script>
             $(document).ready(function() {
+
+                $('#print').click(function () {
+                    window.print();
+                })
+
                 $('#calendar').fullCalendar({
                     options: {
                         locale: 'es'

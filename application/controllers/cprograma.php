@@ -32,6 +32,8 @@ class cprograma extends CI_Controller
         $this->load->view('vperiodoprograma',$datos);
     }
 
+    
+
     public function editar($id)
     {
         if (!$this->session->userdata('username')) {
