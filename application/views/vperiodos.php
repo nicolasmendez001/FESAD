@@ -110,8 +110,8 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row bg-title">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Panel de Administración Periodo</h4>
+                    <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Panel de Administración Periodo académico</h4>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <a href="#nuevodocente">
@@ -159,7 +159,7 @@
                 <!-- ============================================================== -->
                 <div class="row bg-title">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Agregar Periodo</h4>
+                        <h4 class="page-title">Agregar Periodo académico</h4>
                     </div>
 
                     <!-- /.col-lg-12 -->
@@ -168,9 +168,8 @@
                 <div class="col-md-12 col-xs-12" id="nuevodocente">
                     <div class="white-box">
                         <form class="form-horizontal form-material" action="" method="POST" enctype="multipart/form-data">
-
                             <div class="form-group">
-                                <label class="col-md-12">Año</label>
+                                <label class="col-md-12">Año<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <select class="form-control pull-right row b-none" name="anio">
                                         <option value="2019">2019</option>
@@ -188,7 +187,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Semestre</label>
+                                <label class="col-md-12">Semestre<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <select class="form-control pull-right row b-none" name="semestre">
                                         <option value="1">1</option>

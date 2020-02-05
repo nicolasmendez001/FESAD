@@ -193,12 +193,12 @@
                     <div class="white-box">
                         <form class="form-horizontal form-material" action="" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label class="col-md-12">Nombre</label>
+                                <label class="col-md-12">Nombre<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <input type="text" name="nombre" placeholder="Salon ABC" class="form-control form-control-line" required> </div>
                             </div>
                             <div class="form-group">
-                                <label for="example-email" class="col-md-12">Ubicación</label>
+                                <label for="example-email" class="col-md-12">Ubicación<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <input type="text" name="ubicacion" placeholder="Edificio ABC" class="form-control form-control-line" id="example-email" required> </div>
                             </div>

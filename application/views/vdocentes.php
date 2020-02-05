@@ -168,19 +168,20 @@
                     <div class="white-box">
                         <form class="form-horizontal form-material" action="" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label class="col-md-12">Nombre</label>
+                                <label class="col-md-12">Nombre<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <input type="text" name="nombre" placeholder="Nombre y Apellidos" class="form-control form-control-line" required> </div>
                             </div>
                             <div class="form-group">
-                                <label for="example-email" class="col-md-12">Correo electrónico</label>
+                                <label for="example-email" class="col-md-12">Correo electrónico<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <input type="email" name="correo" placeholder="nombre@correo.com" class="form-control form-control-line" id="example-email" required> </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Teléfono</label>
+                                <label class="col-md-12">Teléfono<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
-                                    <input type="text" name="telefono" placeholder="123 456 7890" class="form-control form-control-line" required> </div>
+                                    <input type="tel" name="telefono" placeholder="123 456 7890" class="form-control form-control-line" maxlength="10" pattern="[0-9]{10}" required> 
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">

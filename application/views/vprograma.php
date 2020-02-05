@@ -143,21 +143,21 @@
             <!-- chat-listing & recent comments -->
             <!-- ============================================================== -->
             <div class="row bg-title">
-                < <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12">
-                        <h2 class="text-center"><strong>Agregar programa académico</strong></h2>
-                    </div>
+                <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12">
+                    <h2 class="text-center"><strong>Agregar programa académico</strong></h2>
+                </div>
             </div>
 
             <div class="col-md-12 col-xs-12" id="nuevodocente">
                 <div class="white-box">
                     <form class="form-horizontal form-material" action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label class="col-md-12">Nombre</label>
+                            <label class="col-md-12">Nombre<span style="color: red;">*</span></label>
                             <div class="col-md-12">
                                 <input type="text" name="nombre" placeholder="Nombre" class="form-control form-control-line" required></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-12">Semestres</label>
+                            <label class="col-md-12">Semestres<span style="color: red;">*</span></label>
                             <div class="col-md-12">
                                 <select class="form-control pull-right row b-none" name="semestre">
                                     <option value="1">1</option>

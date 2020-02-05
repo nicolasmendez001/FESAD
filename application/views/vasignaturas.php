@@ -118,7 +118,7 @@
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <a href="#nuevodocente">
-                            <button class="btn btn-success">Agregar Asignatura</button>
+                            <button class="btn btn-warning addDocente">Agregar Asignatura</button>
                         </a>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -193,22 +193,22 @@
                     <div class="white-box">
                         <form class="form-horizontal form-material" action="" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label class="col-md-12">Nombre</label>
+                                <label class="col-md-12">Nombre<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <input type="text" name="nombre" placeholder="Nombre" class="form-control form-control-line" required></div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Créditos</label>
+                                <label class="col-md-12">Créditos<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <input type="text" name="creditos" placeholder="3" class="form-control form-control-line" required></div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Semestre</label>
+                                <label class="col-md-12">Semestre<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <input type="text" name="semestre" placeholder="1" class="form-control form-control-line" required></div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Programa</label>
+                                <label class="col-md-12">Programa<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <select class="form-control pull-right row b-none" name="programa">
                                         <?php foreach ($programas->result() as $fila) { ?>
@@ -218,7 +218,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Periodo</label>
+                                <label class="col-md-12">Periodo<span style="color: red;">*</span></label>
                                 <div class="col-md-12">
                                     <select class="form-control pull-right row b-none" name="periodo">
                                         <?php foreach ($periodos->result() as $fila) { ?>

@@ -1,7 +1,6 @@
 <html>
 
 <head>
-
     <style>
         body {
             font-family: Helvetica;
@@ -96,7 +95,7 @@
                     <img id="logo" src="https://scontent-bog1-1.xx.fbcdn.net/v/t1.0-9/84338939_2611778668919727_5077426976310951936_n.jpg?_nc_cat=109&_nc_ohc=yGjbm0lH41YAX8IkXUz&_nc_ht=scontent-bog1-1.xx&oh=9af012006cdf14d144cb339cfd73d1d4&oe=5E9566E0">
                 </td>
                 <td id="header_texto">
-                    <div>Facultad de Estudios a Distancia.</div>
+                    <div>Facultad de Estudios a Distancia</div>
                     <div>Universidad Pedagógica y Tecnológica de Colombia</div>
                     <div>CREAD-Tunja</div>
                     <div><strong>Reporte Docente</strong></div>
@@ -112,7 +111,6 @@
                     <div><?php echo "Hora: " . $hoy['hours'] . ":";
                             echo $hoy['minutes'] . ":";
                             echo $hoy['seconds']; ?></div>
-
                 </td>
             </tr>
         </table>

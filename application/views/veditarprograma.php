@@ -79,7 +79,7 @@
                         <a href="<?= base_url() ?>welcome" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
                     </li>
                     <li>
-                        <a href="" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
+                        <a href="<?= base_url() ?>cdocentes" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
                     </li>
                     <li>
                         <a href="<?= base_url() ?>cprograma" class="waves-effect" style="border-left: none"><i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>Programas</a>

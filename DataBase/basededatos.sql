@@ -12,10 +12,7 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
---
 -- Base de datos: `basededatos`
---
 
 -- --------------------------------------------------------
 
@@ -76,22 +73,9 @@ CREATE TABLE `clase` (
   `color` varchar(20) NOT NULL,
   `textColor` varchar(20) NOT NULL,
   `start` datetime NOT NULL,
-  `end` datetime NOT NULL
+  `end` datetime NOT NULL,
+  `dia_semana` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `clase`
---
-
-INSERT INTO `clase` (`id_clase`, `fk_asignatura`, `fk_salon`, `fk_docente`, `title`, `description`, `color`, `textColor`, `start`, `end`) VALUES
-(5, 1, 1, 3, 'Dayana Solano', 'hola', '#4a8db5', '#FFFFFF', '2019-01-11 10:00:00', '2019-01-11 17:00:00'),
-(7, 1, 3, 1, 'LILIA.B. AGUDELO', 'domingo', '#15ea35', '#FFFFFF', '2019-01-06 06:00:00', '2019-01-06 08:00:00'),
-(8, 1, 3, 3, 'Dayana Solano', 'nuevo horario', '#8021de', '#FFFFFF', '2019-01-04 11:05:00', '2019-01-04 22:12:00'),
-(9, 2, 1, 1, 'LILIA.B. AGUDELO', '', '#ff0000', '#FFFFFF', '2019-01-03 08:30:00', '2019-01-03 09:30:00'),
-(13, 1, 2, 1, 'LILIA.B. AGUDELO', 'clase', '#ff8040', '#FFFFFF', '2019-02-01 08:30:00', '2019-02-01 09:30:00'),
-(14, 6, 2, 3, 'Laura Jimenez', 'Clase', '#0080ff', '#FFFFFF', '2019-03-02 07:00:00', '2019-03-02 09:30:00'),
-(15, 6, 2, 3, 'Laura Jimenez', 'Clase 2', '#0080ff', '#FFFFFF', '2019-03-02 07:00:00', '2019-03-02 09:30:00'),
-(16, 1, 1, 2, 'Jose Miguel Beltran', 'Clase', '#00ffff', '#FFFFFF', '2019-03-30 08:30:00', '2019-03-30 09:30:00');
 
 -- --------------------------------------------------------
 
@@ -111,10 +95,7 @@ CREATE TABLE `docente` (
 --
 
 INSERT INTO `docente` (`id_docente`, `nombre`, `correo`, `telefono`) VALUES
-(1, 'Juan Castro', 'juancastro@correo.com', '3194967768'),
-(2, 'Jose Miguel Beltran', 'jose@correo.com', '3214567654'),
-(3, 'Laura Jimenez', 'laura@correo.com', '1233212323'),
-(4, 'Arturo Junco', 'arturo@correo.com', '32122345747');
+(1, 'Nicolas Mendez', 'angel.mendez@uptc.edu.co', '311266474');
 
 -- --------------------------------------------------------
 
@@ -135,7 +116,8 @@ CREATE TABLE `periodo` (
 
 INSERT INTO `periodo` (`id_periodo`, `fk_programa`, `anio`, `semestre`) VALUES
 (1, 1, 2019, 1),
-(2, 1, 2019, 2);
+(2, 1, 2019, 2),
+(3, 1, 2020, 1);
 
 -- --------------------------------------------------------
 
@@ -178,9 +160,8 @@ CREATE TABLE `salon` (
 
 INSERT INTO `salon` (`id_salon`, `nombre`, `ubicacion`) VALUES
 (1, 'Salón 11', 'Edificio laboratorios '),
-(2, 'Salón 12', ''),
-(3, 'Salón 13', ''),
-(4, 'Salón 14', 'Edificio contaduria');
+(2, 'Salón 12', 'Edificio central'),
+(3, 'Salón 14', 'Edificio contaduria');
 
 -- --------------------------------------------------------
 
@@ -294,7 +275,3 @@ ALTER TABLE `salon`
 ALTER TABLE `usuario`
   MODIFY `id_usuario` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

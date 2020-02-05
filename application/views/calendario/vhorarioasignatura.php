@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -50,10 +50,10 @@
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li>
-                        <a href="<?php echo base_url('clogin/cerrarsesion/'); ?>"><button class="btn btn-danger">Cerrar Sesión</button></a>
+                        <a class="profile-pic" href="#"> <img src="<?= base_url() ?>/resources/dashboard/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">FESAD</b></a>
                     </li>
                     <li>
-                        <a class="profile-pic" href="#"> <img src="<?= base_url() ?>/resources/dashboard/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">FESAD</b></a>
+                        <a href="<?php echo base_url('clogin/cerrarsesion/'); ?>"><button class="btn btn-danger">Cerrar Sesión</button></a>
                     </li>
                 </ul>
             </div>
@@ -72,13 +72,13 @@
                 </div>
                 <ul class="nav" id="side-menu">
                     <li style="padding: 70px 0 0;">
-                        <a href="" class="waves-effect" style="border-left: none"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
+                        <a href="<?= base_url() ?>welcome" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Panel Inicial</a>
                     </li>
                     <li>
                         <a href="<?= base_url() ?>cdocentes" class="waves-effect" style="border-left: none"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Docentes</a>
                     </li>
                     <li>
-                        <a href="" class="waves-effect"><i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>Programas</a>
+                        <a href="<?= base_url() ?>cprograma" class="waves-effect"><i class="fa fa-list-alt fa-fw" aria-hidden="true"></i>Programas</a>
                     </li>
                     <li>
                         <a href="<?= base_url() ?>csalones" class="waves-effect" style="border-left: none"><i class="fa fa-building fa-fw" aria-hidden="true"></i>Salones</a>
@@ -101,26 +101,23 @@
         <!-- ============================================================== -->
         <!-- Page Content -->
         <!-- ============================================================== -->
-        <div id="page-wrapper" >
+        <div id="page-wrapper">
             <div class="container-fluid">
-                <div class="row bg-title">
+                <div class="row bg-title fila">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Panel de Administración Asignaturas</h4>
                         <button id="print" class="btn btn-warning addDocente"> imprimir</button>
                     </div>
-                    <div class="col-lg-8 col-md-4 col-sm-4 col-xs-12">
+                    <div class="col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
                         <ol class="breadcrumb">
                             <li><a href="<?= base_url() ?>">Inicio</a></li>
                             <li><a href="<?= base_url() ?>cprograma">Programas</a></li>
-                            <li><a href="<?= base_url() ?>cprograma">Periodo`</a></li>
                             <?php foreach ($asignatura->result() as $fila) { ?>
-                                <li><a href="<?php echo base_url('cprograma/asignaturas/' . $fila->fk_programa . '/' . $fila->fk_periodo) ?>">Asignaturas</a></li>
                                 <li class="active"><?php echo $fila->nombre ?></li>
                             <?php } ?>
                         </ol>
                     </div>
                 </div>
-                <!-- ============================================================== -->
                 <div id='calendar'>
 
                 </div>
@@ -299,7 +296,7 @@
         <script src="<?= base_url() ?>/resources/dashboard/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
         <!-- Custom Theme JavaScript -->
         <script src="<?= base_url() ?>/resources/dashboard/js/custom.min.js"></script>
-     
+
 
 
         <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
@@ -316,8 +313,10 @@
         <script>
             $(document).ready(function() {
 
-                $('#print').click(function () {
+                $('#print').click(function() {
+                    $('.fila').addClass("nover");
                     window.print();
+                    $('.fila').removeClass("nover");
                 })
 
                 $('#calendar').fullCalendar({
